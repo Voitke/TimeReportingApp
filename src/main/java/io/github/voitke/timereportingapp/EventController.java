@@ -1,4 +1,4 @@
-package com.example.demo;
+package io.github.voitke.timereportingapp;
 
 import org.springframework.web.bind.annotation.RestController;
 
