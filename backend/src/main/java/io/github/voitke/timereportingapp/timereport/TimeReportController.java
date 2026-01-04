@@ -19,10 +19,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class TimeReportController {
     
-    @Autowired
-    TimeReportRepository timeReportRepository;
-    @Autowired
-    TimeReportService timeReportService;
+    private final TimeReportRepository timeReportRepository;
+    private final TimeReportService timeReportService;
 
     @GetMapping("/api/timereports")
     public Page<TimeReport> getAllReports(

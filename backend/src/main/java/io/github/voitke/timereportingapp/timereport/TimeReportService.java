@@ -6,18 +6,17 @@ import io.github.voitke.timereportingapp.timereport.model.TimeReportDTO;
 import io.github.voitke.timereportingapp.timereport.model.User;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class TimeReportService {
 
-    @Autowired
-    private TimeReportRepository timeReportRepository;
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private ActivityRepository activityRepository;
+    private final TimeReportRepository timeReportRepository;
+    private final UserRepository userRepository;
+    private final ActivityRepository activityRepository;
 
     @Transactional
     public TimeReport addNewReport(TimeReportDTO reportDto){
