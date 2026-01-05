@@ -2,17 +2,18 @@ package io.github.voitke.timereportingapp.timereport.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Data
 @NoArgsConstructor
 public class Activity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
     @NotBlank
-    String name;
+    private String name;
     @ManyToOne
-    Activity parentActivity;
+    private Activity parentActivity;
 }

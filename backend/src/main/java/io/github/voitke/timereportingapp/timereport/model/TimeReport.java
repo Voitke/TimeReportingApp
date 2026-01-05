@@ -9,8 +9,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 public class TimeReport {
     @Id
