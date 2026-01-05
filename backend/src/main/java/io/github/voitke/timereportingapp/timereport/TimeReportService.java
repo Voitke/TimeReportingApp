@@ -7,11 +7,12 @@ import io.github.voitke.timereportingapp.timereport.model.User;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+ @Slf4j
 public class TimeReportService {
 
     private final TimeReportRepository timeReportRepository;
@@ -20,6 +21,7 @@ public class TimeReportService {
 
     @Transactional
     public TimeReport addNewReport(TimeReportDTO reportDto){
+        log.info("Adding new time report to database");
         User user = userRepository.findById(reportDto.userId())
                 .orElseThrow(() -> new EntityNotFoundException("User not found with id: " + reportDto.userId()));
         Activity activity = activityRepository.findById(reportDto.activityId())
