@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tra-frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tra-frontend
+  template:
+    metadata:
+      labels:
+        app: tra-frontend
+    spec:
+      containers:
+        - name: tra-frontend
+          image: tra-frontend:0.0.1
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: tra-frontend-config

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tra-backend-config
+data:
+  DB_HOST: "tra-db-service"
+  DB_PORT: "5432"
+  DB_NAME: "time_reporting_db"
+  DB_USER: "time_reporting_app"
+  DB_PASSWORD: 

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tra-frontend-service
+spec:
+  type: ClusterIP
+  selector:
+    app: tra-frontend
+  ports:
+    - port: 80
+      targetPort: 80

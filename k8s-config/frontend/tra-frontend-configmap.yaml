@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tra-frontend-config
+data:
+  API_URL: "http://tra-backend-service:8080"

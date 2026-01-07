@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tra-db-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tra-db
+  template:
+    metadata:
+      labels:
+        app: tra-db
+    spec:
+      containers:
+        - name: tra-db
+          image: postgres:15
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: tra-db-config
+            - secretRef:
+                name: tra-db-secrets
+          volumeMounts:
+            - name: tra-db-data
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: tra-db-data
+          persistentVolumeClaim:
+            claimName: tra-db-data-volume
