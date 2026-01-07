@@ -8,7 +8,7 @@ services:
       - DB_PORT=5432
       - DB_NAME=time_reporting_db
       - DB_USER=time_reporting_app
-      - DB_PASSWORD=secret
+      - DB_PASSWORD=secret              # placeholder
     depends_on:
       - db
 
@@ -16,7 +16,7 @@ services:
     image: postgres:15            
     environment:
       POSTGRES_USER: time_reporting_app
-      POSTGRES_PASSWORD: secret
+      POSTGRES_PASSWORD: secret         # placeholder
       POSTGRES_DB: time_reporting_db
     ports:
       - "5432:5432"
