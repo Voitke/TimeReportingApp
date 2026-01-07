@@ -4,22 +4,22 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - DB_HOST=db
-      - DB_PORT=5432
-      - DB_NAME=time_reporting_db
-      - DB_USER=time_reporting_app
-      - DB_PASSWORD=secret              # placeholder
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: time_reporting_db
+      DB_USER: time_reporting_app
+      DB_PASSWORD: secret              # placeholder
     depends_on:
       - db
 
   db:
     image: postgres:15            
+    ports: []
+      # - "5432:5432"
     environment:
       POSTGRES_USER: time_reporting_app
       POSTGRES_PASSWORD: secret         # placeholder
       POSTGRES_DB: time_reporting_db
-    ports:
-      - "5432:5432"
     volumes:
       - db-data:/var/lib/postgresql/data
 
