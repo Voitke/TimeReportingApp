@@ -7,4 +7,3 @@ data:
   DB_PORT: "5432"
   DB_NAME: "time_reporting_db"
   DB_USER: "time_reporting_app"
-  DB_PASSWORD: 
