@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: tra-backend
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: backend
+      app: tra-backend
   template:
     metadata:
       labels:
-        app: backend
+        app: tra-backend
     spec:
       containers:
-        - name: backend
+        - name: tra-backend
           image: tra-backend:0.0.1
           ports:
             - containerPort: 8080
